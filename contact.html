@@ -14,10 +14,22 @@
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
         </nav>
+        <button class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
     <main>
-        <h2>Contact Me</h2>
-        <p>Email: [your email] | Twitter: [your Twitter handle]</p>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
     </main>
     <footer>
         <p>&copy; 2023 Your YouTube Channel</p>
