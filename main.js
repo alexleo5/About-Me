@@ -12,12 +12,11 @@ document.querySelectorAll('nav a').forEach(anchor => {
 document.addEventListener('DOMContentLoaded', function() {
     const currentLocation = location.href;
     const menuItem = document.querySelectorAll('nav a');
-    const menuLength = menuItem.length;
-    for(let i = 0; i < menuLength; i++){
-        if(menuItem[i].href === currentLocation){
-            menuItem[i].className = 'active';
+    menuItem.forEach(item => {
+        if (item.href === currentLocation) {
+            item.classList.add('active');
         }
-    }
+    });
 });
 
 // Add a subtle fade-in animation on page load
@@ -35,14 +34,6 @@ window.addEventListener('scroll', function() {
     } else {
         header.classList.remove('sticky');
     }
-});
-
-// Dropdown menu for smaller screens
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('nav');
-
-navToggle.addEventListener('click', function() {
-    navMenu.classList.toggle('active');
 });
 
 // Form validation and submission
@@ -86,50 +77,4 @@ function loadVideos() {
 
 document.addEventListener('DOMContentLoaded', function() {
     loadVideos();
-});
-
-// Interactive elements - Tooltip
-const tooltips = document.querySelectorAll('.tooltip');
-tooltips.forEach(tooltip => {
-    tooltip.addEventListener('mouseover', function() {
-        const tooltipText = tooltip.getAttribute('data-tooltip');
-        const tooltipElement = document.createElement('div');
-        tooltipElement.className = 'tooltip-text';
-        tooltipElement.textContent = tooltipText;
-        tooltip.appendChild(tooltipElement);
-    });
-
-    tooltip.addEventListener('mouseout', function() {
-        const tooltipText = tooltip.querySelector('.tooltip-text');
-        if (tooltipText) {
-            tooltipText.remove();
-        }
-    });
-});
-
-// Additional interactive elements - Carousel
-const carousel = document.querySelector('.carousel');
-const carouselImages = [
-    'image1.jpg',
-    'image2.jpg',
-    // Add more images as needed
-];
-
-let currentImageIndex = 0;
-
-function changeImage() {
-    carousel.style.backgroundImage = `url(${carouselImages[currentImageIndex]})`;
-    currentImageIndex = (currentImageIndex + 1) % carouselImages.length;
-}
-
-setInterval(changeImage, 3000);
-
-// More complex form validation
-contactForm.addEventListener('input', function(e) {
-    const input = e.target;
-    if (input.validity.valid) {
-        input.style.borderColor = 'green';
-    } else {
-        input.style.borderColor = 'red';
-    }
 });
